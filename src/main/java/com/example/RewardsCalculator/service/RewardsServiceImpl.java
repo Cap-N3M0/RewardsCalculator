@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +20,14 @@ import com.example.RewardsCalculator.repository.TransactionRepository;
 @Service
 public class RewardsServiceImpl implements RewardsService {
 
+	final static Logger logger = LoggerFactory.getLogger(RewardsServiceImpl.class);
 	
 	@Autowired
 	TransactionRepository transactionRepository;
 
 	public Rewards getRewardsByCustomerId(Long customerId) {
+		
+		logger.debug("starting rewards calculation for customer id: {}", customerId);
 
 		Timestamp lastMonthTimestamp = getDateBasedOnOffSetDays(Constants.daysInMonths);
 		Timestamp lastSecondMonthTimestamp = getDateBasedOnOffSetDays(2*Constants.daysInMonths);
@@ -46,6 +51,9 @@ public class RewardsServiceImpl implements RewardsService {
 		customerRewards.setLastSecondMonthRewardPoints(lastSecondMonthRewardPoints);
 		customerRewards.setLastThirdMonthRewardPoints(lastThirdMonthRewardPoints);
 		customerRewards.setTotalRewards(lastMonthRewardPoints + lastSecondMonthRewardPoints + lastThirdMonthRewardPoints);
+		
+		logger.debug("total rewards calculated for customer id: {}", customerId);
+
 
 		return customerRewards;
 

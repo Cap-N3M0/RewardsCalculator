@@ -8,6 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "TRANSACTION")
@@ -15,15 +18,20 @@ public class Transaction {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "TRANSACTION_ID")
+    @Min(10001)
+    @NotNull
     private Long transactionId;
 
     @Column(name="CUSTOMER_ID")
+    @NotNull
+    @Min(1001)
     private Long customerId;
 
     @Column(name = "TRANSACTION_DATE")
     private Timestamp transactionDate;
 
     @Column(name = "AMOUNT")
+    @Min(0)
     private double transactionAmount;
 
 
