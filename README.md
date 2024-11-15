@@ -30,3 +30,25 @@ Great, the project is now imported to your local machine.
 3. localhost:8080/customers/1003/rewards
 
 # Congratulations you have successfully configured the project.
+
+<br/><br/>
+# Screenshots for reference
+![image](https://github.com/user-attachments/assets/4c4d5ec3-2a1e-4fd5-8893-1d96f74e57e8) 
+<br/>
+![image](https://github.com/user-attachments/assets/6f7ef1d1-5c1e-41b7-b603-2381cbd3bc84)
+
+<br/>
+### Invalid Customer ID
+![image](https://github.com/user-attachments/assets/9b7fccfd-44c7-4e40-87f6-dad73dd65ac7)
+
+<br/>
+### Validation Failure for customer ID
+![image](https://github.com/user-attachments/assets/a88531cf-b73b-413d-9d4b-ae42eaa3924d)
+
+### logs on console
+![image](https://github.com/user-attachments/assets/785b81c8-08eb-46fc-8097-a6ab4ea97e2e)
+
+
+
+
+
